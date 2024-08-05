@@ -1,16 +1,29 @@
 <script setup>
-import { ref } from 'vue'
+import { ref,reactive } from 'vue'
+
+const money = ref(0)
+money.value = 10000
+const fruits = reactive(['蘋果','香蕉','水蜜桃'])
+const user = reactive({
+  name: 'Bob',
+  age: '3'
+})
 
 defineProps({
   msg: String,
 })
 
 const count = ref(0)
+
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ money }}</h1>
+  <h2>{{ fruits[2] }}</h2>
+  <h3>{{ user.name }} 是 {{ user.age }} 歲</h3>
 
+  <img src="../assets/images/cover123.jpg" alt="from assets">
+  <img src="/cover123.jpg" alt="from public">
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
     <p>
