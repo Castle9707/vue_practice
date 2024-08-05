@@ -1,7 +1,6 @@
 <script setup>
-import { onUnmounted } from 'vue';
-import { onUpdated } from 'vue';
-import { ref } from 'vue'
+import { onUnmounted, onUpdated } from 'vue'
+import { ref,reactive } from 'vue'
 const note = ref('')
 const text = ref('請輸入')
 const textStyle = ref({color:'tomato', fontSize: '20px', fontWeight: 'bold'})
@@ -47,6 +46,11 @@ function showMsg(msg){
   <ul>
     <li v-for="(item, index) in fruits" @click="showFruit(item, index)">{{ index + 1 }} . {{ item }}</li>
   </ul>
+  <form action="" id="myForm">
+    <select name="fruit" id="Fruits">
+      <option v-for="(item1,index) in fruits" :value="item1" @change="showfruit(item1, index)">{{ item1 }}</option>
+    </select>
+  </form>
 </template>
 
 <style scoped>
@@ -64,5 +68,11 @@ function showMsg(msg){
 }
 li {
   list-style: none;
+}
+li:hover {
+  font-size: 20px;
+  font-weight: bold;
+  color: tomato;
+  cursor: pointer;
 }
 </style>

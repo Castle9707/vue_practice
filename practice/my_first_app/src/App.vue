@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import Button from './components/Button.vue'
 import LifeNote from './components/LifeNote.vue'
+import Register from './components/Register.vue'
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import LifeNote from './components/LifeNote.vue'
   <!-- <HelloWorld msg="Vite + Vue" /> -->
    <Button></Button>
    <LifeNote></LifeNote>
+   <Register></Register>
 </template>
 
 <style scoped>
