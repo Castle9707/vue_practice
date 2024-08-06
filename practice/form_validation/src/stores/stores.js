@@ -7,7 +7,7 @@ export const useCounterStore = defineStore("counter", {
       {
         id: 1,
         text: "寫code啊",
-        isFinished: true,
+        isFinished: false,
       },
       {
         id: 2,
@@ -17,7 +17,7 @@ export const useCounterStore = defineStore("counter", {
       {
         id: 3,
         text: "我想回家",
-        isFinished: true,
+        isFinished: false,
       },
       {
         id: 4,
@@ -47,6 +47,10 @@ export const useCounterStore = defineStore("counter", {
         isFinished: false,
       });
       text = "";
+    },
+    toggleTodo(id) {
+      const index = this.todos.findIndex((v) => v.id === id);
+      this.todos[index].isFinished = !this.todos[index].isFinished;
     },
   },
 });

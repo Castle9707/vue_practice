@@ -4,7 +4,7 @@ import { useCounterStore } from '../stores/stores'
 import { storeToRefs } from 'pinia'
 const todoStore = useCounterStore()
 const { finishedTodos } = storeToRefs(todoStore)
-const { addTodo } = todoStore
+const { addTodo, toggleTodo } = todoStore
 const newItem = ref('')
 </script>
 
@@ -13,9 +13,10 @@ const newItem = ref('')
   <div class="container">
     <input type="text" v-model="newItem" @keydown.enter="addTodo(newItem)" />
     <button type="button" @click="addTodo(newItem)" >新增待辦事項</button>
-    <ul class="list">
-      <li class="item" v-for="item in todoStore.todos">{{item.text}}</li>
-    </ul>
+      <div class="form-check d-flex"  v-for="item in todoStore.todos">
+        <input class="form-check-input box" type="checkbox" value="" id="flexCheckDefault" @click="toggleTodo(item.id)" />
+        <label class="form-check-label" for="flexCheckDefault">{{item.text}}</label>
+      </div>
     <hr />
     <h3>已完成清單</h3>
     <ul class="list">
@@ -41,8 +42,14 @@ h3{
 }
 .item{
   color:rgb(3, 102, 69);
+  list-style: none;
+  display: flex;
 }
 .item2{
   color:rgb(55, 44, 90);
+}
+.box{
+  width: 16px;
+  margin-right: 12px;
 }
 </style>
